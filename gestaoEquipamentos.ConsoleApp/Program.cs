@@ -1,6 +1,8 @@
 ﻿
 using System.Data;
 using gestaoEquipamentos.ConsoleApp.Dominio;
+using gestaoEquipamentos.ConsoleApp.Apresentacao;
+
 
 
 int contadorIds = 1;
@@ -25,23 +27,11 @@ equipamentoTeste1.dataFabricacao = DateTime.Parse("19/07/2025");
 equipamentosSalvos[0] = equipamentoTeste;
 equipamentosSalvos[1] = equipamentoTeste1;
 
+TelaPrincipal telaPrincipal = new TelaPrincipal();
 
 while (true)
 {
-    Console.Clear();
-    Console.ForegroundColor = ConsoleColor.Green;
-    Console.WriteLine("╔═════════════════════════════════════╗");
-    Console.WriteLine("║       GESTÃO DE EQUIPAMENTOS        ║");
-    Console.WriteLine("╚═════════════════════════════════════╝");
-    Console.ResetColor();
-    Console.ForegroundColor = ConsoleColor.Blue;
-    Console.WriteLine("║ 1 - CONTROLE DE EQUIPAMENTS         ║");
-    Console.WriteLine("║ 2 - CONTROLE DE CHAMADOS            ║");
-    Console.WriteLine("║ S - SAIR                            ║");
-    Console.WriteLine("╚═════════════════════════════════════╝");
-    Console.Write("> ");
-
-    string? opcaoMenuPrincipal = Console.ReadLine()?.ToUpper();
+    string? opcaoMenuPrincipal = telaPrincipal.ObterOpcaoMenuPrincial();
 
     if (opcaoMenuPrincipal == "S")
     {
